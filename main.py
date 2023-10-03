@@ -81,13 +81,13 @@ def handle_bullets(bullets, asteroids):
   global game_score
   for bullet in bullets:
     bullet.y -= BULLET_VEL
+    if bullet.y < -15:
+      bullets.remove(bullet)
     for asteroid in asteroids:
       if bullet.colliderect(asteroid):
         bullets.remove(bullet)
         asteroids.remove(asteroid)
         game_score += 50
-      elif bullet.y < 0:
-        bullets.remove(bullet)
 
 #This function checks if it is able to spawn a new asteroid, and does so if the check passes
 #This function also varies the speed at which asteroids spawn as your game score increases
