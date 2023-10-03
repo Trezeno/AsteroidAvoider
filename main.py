@@ -211,35 +211,34 @@ def end_screen_text(score):
 #This function is the introduction menu to the game before the main game loop starts
 def main_menu():
   global game_state
-  if game_state == "menu":
-    menu_text_game_name = END_GAME_FONT.render("Asteroid Avoider", 1, WHITE_COLOUR)
-    menu_text_game_info = GAME_FONT.render("Welcome to AA. The game is simple and controls are as follows:", 1, WHITE_COLOUR)
-    menu_text_game_info_2 = GAME_FONT.render("Use 'WASD' to move your ship to avoid the asteroids.", 1, WHITE_COLOUR)
-    menu_text_game_info_3 = GAME_FONT.render("Press 'SPACE' to shoot missiles from your ship to destroy asteroids.", 1, WHITE_COLOUR)
-    menu_text_game_info_4 = GAME_FONT.render("Press 'ESC' or 'P' to pause the game at any time.", 1, WHITE_COLOUR)
-    menu_text_game_info_5 = GAME_FONT.render("Shooting asteroids rewards 50 points, avoiding them awards 10 points.", 1, WHITE_COLOUR)
-    menu_text_game_info_6 = GAME_FONT.render("Make sure to fly into any ammo or health packs you need!", 1, WHITE_COLOUR)
-    menu_text_game_info_7 = GAME_FONT.render("That's all! Best of luck!", 1, WHITE_COLOUR)
-    menu_text_game_info_8 = PAUSE_GAME_FONT.render("Press 'SPACE' to start the game.", 1, WHITE_COLOUR)
-    WIN.blit(SPACE_BACKGROUND, (0, 0))
-    WIN.blit(menu_text_game_name, (WIN_WIDTH/2 - menu_text_game_name.get_width()/2, 50))
-    WIN.blit(menu_text_game_info, (WIN_WIDTH/2 - menu_text_game_info.get_width()/2, 175))
-    WIN.blit(menu_text_game_info_2, (WIN_WIDTH/2 - menu_text_game_info_2.get_width()/2, 225))
-    WIN.blit(menu_text_game_info_3, (WIN_WIDTH/2 - menu_text_game_info_3.get_width()/2, 275))
-    WIN.blit(menu_text_game_info_4, (WIN_WIDTH/2 - menu_text_game_info_4.get_width()/2, 325))
-    WIN.blit(menu_text_game_info_5, (WIN_WIDTH/2 - menu_text_game_info_5.get_width()/2, 375))
-    WIN.blit(menu_text_game_info_6, (WIN_WIDTH/2 - menu_text_game_info_6.get_width()/2, 425))
-    WIN.blit(menu_text_game_info_7, (WIN_WIDTH/2 - menu_text_game_info_7.get_width()/2, 475))
-    WIN.blit(menu_text_game_info_8, (WIN_WIDTH/2 - menu_text_game_info_8.get_width()/2, 575))
-    pygame.display.update()
-    while game_state == "menu":
-      for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-          game_state = "end"
-        if event.type == pygame.KEYDOWN:
-          if event.key == pygame.K_SPACE:
-            game_state = "running"
-            main(spaceship)
+  menu_text_game_name = END_GAME_FONT.render("Asteroid Avoider", 1, WHITE_COLOUR)
+  menu_text_game_info = GAME_FONT.render("Welcome to AA. The game is simple and controls are as follows:", 1, WHITE_COLOUR)
+  menu_text_game_info_2 = GAME_FONT.render("Use 'WASD' to move your ship to avoid the asteroids.", 1, WHITE_COLOUR)
+  menu_text_game_info_3 = GAME_FONT.render("Press 'SPACE' to shoot missiles from your ship to destroy asteroids.", 1, WHITE_COLOUR)
+  menu_text_game_info_4 = GAME_FONT.render("Press 'ESC' or 'P' to pause the game at any time.", 1, WHITE_COLOUR)
+  menu_text_game_info_5 = GAME_FONT.render("Shooting asteroids rewards 50 points, avoiding them awards 10 points.", 1, WHITE_COLOUR)
+  menu_text_game_info_6 = GAME_FONT.render("Make sure to fly into any ammo or health packs you need!", 1, WHITE_COLOUR)
+  menu_text_game_info_7 = GAME_FONT.render("That's all! Best of luck!", 1, WHITE_COLOUR)
+  menu_text_game_info_8 = PAUSE_GAME_FONT.render("Press 'SPACE' to start the game.", 1, WHITE_COLOUR)
+  WIN.blit(SPACE_BACKGROUND, (0, 0))
+  WIN.blit(menu_text_game_name, (WIN_WIDTH/2 - menu_text_game_name.get_width()/2, 50))
+  WIN.blit(menu_text_game_info, (WIN_WIDTH/2 - menu_text_game_info.get_width()/2, 175))
+  WIN.blit(menu_text_game_info_2, (WIN_WIDTH/2 - menu_text_game_info_2.get_width()/2, 225))
+  WIN.blit(menu_text_game_info_3, (WIN_WIDTH/2 - menu_text_game_info_3.get_width()/2, 275))
+  WIN.blit(menu_text_game_info_4, (WIN_WIDTH/2 - menu_text_game_info_4.get_width()/2, 325))
+  WIN.blit(menu_text_game_info_5, (WIN_WIDTH/2 - menu_text_game_info_5.get_width()/2, 375))
+  WIN.blit(menu_text_game_info_6, (WIN_WIDTH/2 - menu_text_game_info_6.get_width()/2, 425))
+  WIN.blit(menu_text_game_info_7, (WIN_WIDTH/2 - menu_text_game_info_7.get_width()/2, 475))
+  WIN.blit(menu_text_game_info_8, (WIN_WIDTH/2 - menu_text_game_info_8.get_width()/2, 575))
+  pygame.display.update()
+  while game_state == "menu":
+    for event in pygame.event.get():
+      if event.type == pygame.QUIT:
+        game_state = "end"
+      if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_SPACE:
+          game_state = "running"
+          main(spaceship)
 
 #This function draws everything onto the game window for it to be visible and the game able to be played
 def draw_game_window(ship, bullets, score, spaceship_ammo, spaceship_health, asteroids, ammo_packs, health_packs):
@@ -290,7 +289,7 @@ def main(spaceship):
   global spaceship_bullets
   global game_state
 
-  if game_state != "paused" or game_state != "running" or game_state != "end":
+  if game_state == "menu":
     main_menu()
 
   clock = pygame.time.Clock()
