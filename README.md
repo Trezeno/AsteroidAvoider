@@ -3,15 +3,21 @@ Small game coded using pygame in which you control a spaceship and dodge asteroi
 Built with the aid of some assets taken from pygame tutorials, others drawn by myself with the aid of aseprite.
 
 ### Gameplay
-You control a spaceship and use 'WASD' to move your ship around.
-The aim of the game is to shoot or dodge asteroids and increase your game score.
-As your game score increases, so too does the speed and number of asteroids.
-However, you will also be rewarded with ammo and health packs every so often at score thresholds.
+You are the commander of a spaceship who has been tasked with navigating a never-ending asteroid field. Your mission is simple, survive as long as you can!
+
+You will, as your score increases, be rewarded with more ammunition and health, if you can grab it in time.
+
+But be warned, as you fly deeping into the asteroid field, they are flying at much greater velocity and are much more numerous!
+
+### Useful Keys
+- Use 'WASD' to move your ship Up, Left, Down, Right respectively.
+- Use 'SPACEBAR' to shoot missiles
+- Use 'ESC' or 'P' to pause the game at any point
 
 ### Extra notes
-Here below is a list of extra notes that may be of importance:
 - There is currently no sound, to be implemented at another time.
 - There is currently no way to save progress and/or a leaderboard.
+- The game is (for now) made using pygame rectangles and not sprites. As a result, collision may seem a bit strange, especially between spaceship and asteroid. Just do your best! It is my first attempt after all.
 - The game will abruptly end and close itself after 5s of displaying the Game Over screen.
 
 Otherwise, have fun and enjoy!
