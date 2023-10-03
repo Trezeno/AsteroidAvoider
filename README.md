@@ -7,7 +7,7 @@ You are the commander of a spaceship who has been tasked with navigating a never
 
 You will, as your score increases, be rewarded with more ammunition and health, if you can grab it in time.
 
-But be warned, as you fly deeping into the asteroid field, they are flying at much greater velocity and are much more numerous!
+But be warned, as you fly deeping into the asteroid field, the asteroids will have a much greater velocity and be much more numerous!
 
 ### Useful Keys
 - Use 'WASD' to move your ship Up, Left, Down, Right respectively.
