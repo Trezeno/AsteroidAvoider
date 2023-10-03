@@ -77,7 +77,7 @@ def handle_spaceship_movement(keys_pressed, spaceship):
   
 #This function handles bullet collision with asteroids or screen edge
 #This function also increases game score by 50 for successfully shooting and destroying an asteroid
-def handle_bullets(bullets, asteroids): #Add asteroid up here
+def handle_bullets(bullets, asteroids):
   global game_score
   for bullet in bullets:
     bullet.y -= BULLET_VEL
@@ -86,8 +86,8 @@ def handle_bullets(bullets, asteroids): #Add asteroid up here
         bullets.remove(bullet)
         asteroids.remove(asteroid)
         game_score += 50
-    if bullet.y < 0:
-      bullets.remove(bullet) #Slight bug here if asteroid spawns on top of bullet when at edge of screen
+      elif bullet.y < 0:
+        bullets.remove(bullet)
 
 #This function checks if it is able to spawn a new asteroid, and does so if the check passes
 #This function also varies the speed at which asteroids spawn as your game score increases
@@ -220,7 +220,7 @@ def main_menu():
   menu_text_game_info_6 = GAME_FONT.render("Make sure to fly into any ammo or health packs you need!", 1, WHITE_COLOUR)
   menu_text_game_info_7 = GAME_FONT.render("That's all! Best of luck!", 1, WHITE_COLOUR)
   menu_text_game_info_8 = PAUSE_GAME_FONT.render("Press 'SPACE' to start the game.", 1, WHITE_COLOUR)
-  while game_state == "menu":
+  while game_state == "menu": #Potential gpu overutilization here, to be looked at in future
     WIN.blit(SPACE_BACKGROUND, (0, 0))
     WIN.blit(menu_text_game_name, (WIN_WIDTH/2 - menu_text_game_name.get_width()/2, 50))
     WIN.blit(menu_text_game_info, (WIN_WIDTH/2 - menu_text_game_info.get_width()/2, 175))
