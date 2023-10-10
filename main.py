@@ -277,7 +277,14 @@ def draw_game_window(ship, bullets, score, spaceship_ammo, spaceship_health, ast
     WIN.blit(HEALTH_PACK, (health.x, health.y))
 
   for asteroid in asteroids:
-    WIN.blit(ASTEROID_LIST[0], (asteroid.x, asteroid.y))
+    if asteroid_spawn_timer < 15:
+      WIN.blit(ASTEROID_LIST[0], (asteroid.x, asteroid.y))
+    elif asteroid_spawn_timer < 30:
+      WIN.blit(ASTEROID_LIST[1], (asteroid.x, asteroid.y))
+    elif asteroid_spawn_timer < 45:
+      WIN.blit(ASTEROID_LIST[2], (asteroid.x, asteroid.y))
+    else:
+      WIN.blit(ASTEROID_LIST[3], (asteroid.x, asteroid.y))
 
   pygame.display.update()
 
